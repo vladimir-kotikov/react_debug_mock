@@ -4,43 +4,49 @@ This is a sample repo to reproduce the bug when stop on breakpoint is not being 
 
 1. Run `debuggerStub.js` in remote debugging mode:
 
-    node --debug --debug-brk debuggerStub.js
+  ```
+node --debug --debug-brk debuggerStub.js
+   ```
 
 2. Run new node debug client and attach to debugger:
 
-    node debug localhost:5858
+  ```
+node debug localhost:5858
+  ```
 
 3. After attaching to debugger set the breakpoints in debug client:
 
-    sb(51)
-    sb('index.android.bundle', 1502)
-    sb('index.android.bundle', 1498)
+  ```
+sb(51)
+sb('index.android.bundle', 1502)
+sb('index.android.bundle', 1498)
+  ```
 
 4. Start execution by typing `c` in debug client console
 
   You'll see that debug will stop on the first breakpoint and print current line to console:
 
-```
+  ```
 break in d:\PROJECTS\Temp\react_debug_mock\debuggerStub.js:51
  49 let sandboxContext = vm.createContext(sandbox);
  50
 >51 runInContext(debuggerWorker, sandboxContext);
  52
  53 const postMessageScript = new vm.Script("onmessage({ data: postMessageArgument });");
-```
+  ```
 
 5. Continue execution by typing `c` again
 
   Debug will stop on the second breakpoint and print current line:
 
-```
+  ```
 break in d:\PROJECTS\Temp\react_debug_mock\index.android.bundle:1502
  1500
  1501 {
 >1502 return(
  1503 _react2.default.createElement(_reactNative.View,{onTouchEnd:this.handleTap.bind(this)},
  1504 _react2.default.createElement(_reactNative.Text,null,'Lorem ipsum dolor sit amet, consectetur ...
-```
+  ```
 
 6. Continue execution by typing `c` again
 
