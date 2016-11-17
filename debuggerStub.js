@@ -7,7 +7,7 @@ const Module = require('module');
 const messages = require('./messages');
 
 const debuggerWorker = path.resolve(__dirname, 'debuggerWorker.js');
-const debuggeeScript = path.resolve(__dirname, 'index.android.bundle');
+const debuggeeScript = path.resolve(__dirname, 'index.android.js');
 
 function runInContext(scriptPath, context) {
     let fileContents = fs.readFileSync(scriptPath, 'utf8');

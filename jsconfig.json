@@ -1,0 +1,8 @@
+{
+    "files": [
+        "index.android.js",
+        "messages.js",
+        "debuggerStub.js",
+        "debuggerWorker.js"
+    ]
+}
